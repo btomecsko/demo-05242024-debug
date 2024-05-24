@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="494dcbdb-8640-4918-8943-2200fd231994" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="HelloWorldFlow" doc:id="a1d51847-7bfe-4cd3-9c8e-826cfed12304" >
+		<http:listener doc:name="Listener" doc:id="005c27ea-7036-47bf-ba4e-607e9b45ef1f" config-ref="HTTP_Listener_config" path="/helloworld"/>
+		<logger level="INFO" doc:name="Logger" doc:id="bcd16059-d2a8-4e18-b8d2-b7048714b4d7" message="** Hola Mundo, Hello World **"/>
+		<set-variable value="92" doc:name="Set Variable" doc:id="c0dfa27d-53d5-4469-a808-c9697db4b931" variableName="var1"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e95619c6-ad60-423f-86c6-cbf6c81f4a02" message="Second logger step"/>
+	</flow>
+</mule>
